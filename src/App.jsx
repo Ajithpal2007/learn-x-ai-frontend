@@ -8,20 +8,20 @@ import './App.css';
 
 // Import all the page components with corrected, case-sensitive paths
 import Landing from './pages/Landing';
-import Login from './pages/Login'; // <-- FIX: Changed 'login' to 'Login'
+import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import MyProfile from './pages/MyProfile';
 import Assessments from './pages/Assessments';
 import CareerMatches from './pages/CareerMatches';
 import MyRoadmap from './pages/MyRoadmap';
 import ExplorationHub from './pages/ExplorationHub';
-import ResourceLibrary from './pages/resourcelibrary';
+import ResourceLibrary from './pages/ResourceLibrary';
 import IndiaDatabases from './pages/IndiaDatabases';
 import SkillBuilding from './pages/SkillBuilding';
-import AiTools from './pages/aitools';
+import AiTools from './pages/AiTools';
 import Community from './pages/Community';
 import Support from './pages/Support';
-import Legal from './pages/legal';
+import Legal from './pages/Legal';
 import Pricing from './pages/Pricing';
 import AboutUs from './pages/AboutUs';
 import Blog from './pages/Blog';
@@ -48,11 +48,15 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Public-Facing Pages */}
+          {/* ======================================== */}
+          {/* Public-Facing Pages                    */}
+          {/* ======================================== */}
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           
-          {/* Main Application (Dashboard) Pages */}
+          {/* ======================================== */}
+          {/* Main Application (Dashboard) Pages     */}
+          {/* ======================================== */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/my-profile" element={<MyProfile />} />
           <Route path="/assessments" element={<Assessments />} />
@@ -77,7 +81,9 @@ function App() {
           <Route path="/learning-dashboard" element={<MyLearningDashboard />} />
           <Route path="/entrepreneurship-hub" element={<EntrepreneurshipHub />} />
           
-          {/* Informational & Other Pages */}
+          {/* ======================================== */}
+          {/* Informational & Other Pages          */}
+          {/* ======================================== */}
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
@@ -85,10 +91,11 @@ function App() {
           <Route path="/profile-guidance" element={<ProfileGuidance />} />
           <Route path="/ai-chatbot" element={<AiChatbot />} />
           
-          {/* Support & Legal */}
+          {/* ======================================== */}
+          {/* Support & Legal Pages                  */}
+          {/* ======================================== */}
           <Route path="/support" element={<Support />} />
           <Route path="/legal" element={<Legal />} />
-
         </Routes>
       </Router>
     </AuthProvider>
