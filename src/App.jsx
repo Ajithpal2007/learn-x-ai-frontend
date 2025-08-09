@@ -7,7 +7,7 @@ import './App.css';
 // Import all the page components
 // Make sure these files are inside a 'src/pages/' directory
 import Landing from './pages/Landing';
-import Login from './pages/login';
+import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import MyProfile from './pages/MyProfile';
 import Assessments from './pages/Assessments';
