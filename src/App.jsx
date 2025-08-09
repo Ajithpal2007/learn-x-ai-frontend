@@ -41,6 +41,19 @@ import Settings from './pages/Settings';
 import MyLearningDashboard from './pages/MyLearningDashboard';
 import EntrepreneurshipHub from './pages/EntrepreneurshipHub';
 import { AuthProvider } from './context/AuthContext'; 
+import AdminDashboard from './pages/AdminDashboard';
+import AdminUsers from './pages/AdminUsers';
+import AdminBlogs from './pages/AdminBlogs';
+import AdminColleges from './pages/AdminColleges';
+import AdminSubmissions from './pages/AdminSubmissions';
+import AdminCareers from './pages/AdminCareers';
+
+
+
+
+import AdminScholarships from './pages/AdminScholarships';
+import AdminWebinars from './pages/AdminWebinars';
+
 
 
 function App() {
@@ -90,6 +103,20 @@ function App() {
           <Route path="/for-schools" element={<ForSchools />} />
           <Route path="/profile-guidance" element={<ProfileGuidance />} />
           <Route path="/ai-chatbot" element={<AiChatbot />} />
+
+
+
+
+          // admin routes
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/blogs" element={<AdminBlogs />} />
+          <Route path="/admin/colleges" element={<AdminColleges />} />
+          <Route path="/admin/submissions" element={<AdminSubmissions />} />
+          <Route path="/admin/careers" element={<AdminCareers />} />
+          <Route path="/admin/scholarships" element={<AdminScholarships />} />
+
+
           
           {/* ======================================== */}
           {/* Support & Legal Pages                  */}
