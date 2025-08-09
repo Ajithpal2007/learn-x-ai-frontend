@@ -74,7 +74,7 @@ function Assessments() {
         if(!loading) setLoading(true); 
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/assessments', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/assessments`, config);
             setAssessments(data);
         } catch (err) {
             setError('Failed to load assessments.');
