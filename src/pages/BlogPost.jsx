@@ -19,7 +19,8 @@ const CommentCard = ({ comment, onDelete, currentUser }) => {
             className="flex items-start gap-4 py-4 border-b border-gray-100"
         >
             <img 
-                src={comment.author?.profilePictureUrl ? `http://localhost:5000${comment.author.profilePictureUrl}` : '/default-avatar.png'}
+                src={comment.author?.profilePictureUrl ? `${import.meta.env.VITE_API_URL}${comment.author.profilePictureUrl}` : '/default-avatar.png'}
+
                 alt={comment.author?.name || 'User'}
                 className="w-10 h-10 rounded-full flex-shrink-0"
             />
@@ -52,8 +53,8 @@ function BlogPost() {
     const fetchPostAndComments = async () => {
         try {
             setLoading(true);
-            const postPromise = axios.get(`http://localhost:5000/api/blog/posts/${postId}`);
-            const commentsPromise = axios.get(`http://localhost:5000/api/blog/posts/${postId}/comments`);
+            const postPromise = axios.get(`${import.meta.env.VITE_API_URL}/api/blog/posts/${postId}`);
+            const commentsPromise = axios.get(`${import.meta.env.VITE_API_URL}/api/blog/posts/${postId}/comments`);
             
             const [postRes, commentsRes] = await Promise.all([postPromise, commentsPromise]);
             
@@ -77,7 +78,8 @@ function BlogPost() {
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
             const { data: createdComment } = await axios.post(
-                `http://localhost:5000/api/blog/posts/${postId}/comments`,
+                `${import.meta.env.VITE_API_URL}/api/blog/posts/${postId}/comments`,
+
                 { text: newComment },
                 config
             );

@@ -22,7 +22,7 @@ function AdminScholarships() {
         setError('');
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/scholarships', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/scholarships`, config);
             setScholarships(data);
         } catch (error) {
             setError('Failed to fetch scholarships.');

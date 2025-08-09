@@ -19,7 +19,7 @@ function AdminWebinars() {
         setError('');
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/webinars', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/webinars`, config);
             setWebinars(data);
         } catch (err) {
             setError('Failed to fetch webinars.');

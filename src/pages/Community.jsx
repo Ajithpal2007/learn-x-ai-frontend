@@ -58,7 +58,8 @@ function Community() {
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
             const categoryFilter = activeCategory === 'All Discussions' ? '' : activeCategory;
-            const { data } = await axios.get(`http://localhost:5000/api/discussions?category=${categoryFilter}`, config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/discussions?category=${categoryFilter}`, config);
+
             setDiscussions(data);
         } catch (err) {
             setError('Failed to load discussions.');

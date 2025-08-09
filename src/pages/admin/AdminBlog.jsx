@@ -24,7 +24,7 @@ function AdminBlog() {
         setError('');
         try {
             // No token needed for public GET, but good practice for admin view
-            const { data } = await axios.get('http://localhost:5000/api/blog/posts');
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/blog/posts`);
             setPosts(data);
         } catch (error) {
             setError('Failed to fetch blog posts.');

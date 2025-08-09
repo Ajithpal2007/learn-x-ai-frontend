@@ -17,7 +17,7 @@ function AdminUsers() {
         setError('');
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/users', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/users`, config);
             setUsers(data);
         } catch (error) {
             setError('Failed to fetch users.');
@@ -37,7 +37,8 @@ function AdminUsers() {
             }
             try {
                 const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-                await axios.delete(`http://localhost:5000/api/users/${idToDelete}`, config);
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/users/${idToDelete}`, config);
+
                 fetchUsers(); // Refresh the list
             } catch (error) {
                 setError('Failed to delete user.');

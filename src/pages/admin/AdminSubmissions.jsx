@@ -16,7 +16,7 @@ function AdminSubmissions() {
         setLoading(true);
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/submissions', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/submissions`, config);
             setSubmissions(data);
         } catch (err) {
             setError('Failed to fetch submissions.');
@@ -30,7 +30,8 @@ function AdminSubmissions() {
     const handleUpdateStatus = async (id, status) => {
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            await axios.put(`http://localhost:5000/api/submissions/${id}`, { status }, config);
+            await axios.put(`${import.meta.env.VITE_API_URL}/api/submissions/${id}`, { status }, config);
+
             fetchSubmissions(); // Refresh list
         } catch (err) {
             setError('Failed to update status.');

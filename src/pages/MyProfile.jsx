@@ -59,7 +59,9 @@ function MyProfile() {
                 educationalInfo: userInfo.educationalInfo || {},
             });
             if (userInfo.profilePictureUrl) {
-                setImagePreview(`http://localhost:5000${userInfo.profilePictureUrl}`);
+                setImagePreview(`${import.meta.env.VITE_API_URL}${userInfo.profilePictureUrl}`);
+            } else {
+                setImagePreview('/default-avatar.png');
             }
         }
         setLoading(false);
@@ -91,7 +93,7 @@ function MyProfile() {
                 const uploadFormData = new FormData();
                 uploadFormData.append('image', imageFile);
                 const uploadConfig = { headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${userInfo.token}` } };
-                const { data: uploadData } = await axios.post('http://localhost:5000/api/upload', uploadFormData, uploadConfig);
+                const { data: uploadData } = await axios.post(`${import.meta.env.VITE_API_URL}/api/upload`, uploadFormData, uploadConfig);
                 dataToSave.profilePictureUrl = uploadData.image;
             }
             

@@ -82,7 +82,7 @@ function StudentProfile() {
                             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col md:flex-row items-center gap-6 mb-10 bg-dark-card border border-dark-border p-6 rounded-2xl">
                                 <img 
                                     className="w-28 h-28 rounded-full border-4 border-primary shadow-lg object-cover" 
-                                    src={profileData.profilePictureUrl ? `http://localhost:5000${profileData.profilePictureUrl}` : '/default-avatar.png'} 
+                                    src={profileData.profilePictureUrl ? `${import.meta.env.VITE_API_URL}${profileData.profilePictureUrl}` : '/default-avatar.png'} 
                                     alt={profileData.name} 
                                 />
                                 <div className="text-center md:text-left">

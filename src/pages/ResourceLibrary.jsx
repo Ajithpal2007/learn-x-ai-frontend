@@ -58,8 +58,8 @@ function ResourceLibrary() {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
             // Fetch both resources and the user's saved items to cross-reference
             const [resourcesRes, savedRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/resources', config),
-                axios.get('http://localhost:5000/api/users/saved', config)
+                axios.get(`${import.meta.env.VITE_API_URL}/api/resources`, config),
+                axios.get(`${import.meta.env.VITE_API_URL}/api/users/saved`, config)
             ]);
             
             const savedResourceIds = new Set(savedRes.data.resources.map(r => r._id));

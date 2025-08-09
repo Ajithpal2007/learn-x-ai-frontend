@@ -33,7 +33,8 @@ function ExploreColleges() {
                 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
                 if (!userInfo) { setError('You must be logged in.'); return; }
                 const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-                const url = `http://localhost:5000/api/colleges?stream=${streamFilter}&location=${locationSearch}`;
+                const url = `${import.meta.env.VITE_API_URL}/api/colleges?stream=${streamFilter}&location=${locationSearch}`;
+
                 const { data } = await axios.get(url, config);
                 setColleges(data);
             } catch (err) {

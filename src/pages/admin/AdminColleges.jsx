@@ -21,7 +21,7 @@ function AdminColleges() {
         setError('');
         try {
             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-            const { data } = await axios.get('http://localhost:5000/api/colleges', config);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/colleges`, config);
             setColleges(data);
         } catch (err) {
             setError('Failed to fetch colleges.');
